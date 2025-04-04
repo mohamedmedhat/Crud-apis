@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option java_multiple_files= true;
+package com.example.apis;
+
+service UserService {
+  rpc createUser(UserRequest) returns (UserResponse);
+  rpc getUser(UserRequest) returns (UserResponse);
+  rpc updateUser(UserRequest) returns (UserResponse);
+  rpc deleteUser(UserIdRequest) returns (DeleteResponse);
+  rpc ListUsers (Empty) returns (UserList);
+}
+
+message UserRequest {
+  string id = 1;
+  string name = 2;
+  int32 age = 3;
+  string rate = 4;
+}
+
+message UserResponse {
+  string id = 1;
+  string name = 2;
+  int32 age = 3;
+  string rate = 4;
+}
+
+message UserIdRequest {
+  string id = 1;
+}
+
+message DeleteResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message Empty {
+}
+
+message UserList {
+  repeated UserResponse users = 1;
+}

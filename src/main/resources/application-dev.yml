@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+grpc:
+  server:
+    port: 9090
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydatabase
+    username: myuser
+    password: secret
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+logging:
+  level:
+    net.devh.boot.grpc.server: DEBUG
